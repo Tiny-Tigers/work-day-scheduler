@@ -22,8 +22,18 @@ console.log(saveButton)
 
   var hour = dayjs().format('h A');
   console.log(hour)
+  var hourElements =  document.querySelector(".row time-block future").textContent
 
+  var hourArray = Array.from(hourElements)
 
+  //console.log(hourElements)
+console.log(hourArray)
+  hourArray.forEach(function(hourElement) {
+    var selectedHour = hourElement.textContent;
+
+    // Perform your desired action for each hour
+    console.log("Selected hour:", selectedHour);
+  });
 
   // Console.log Button ID
 
