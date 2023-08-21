@@ -4,12 +4,12 @@
 var today = dayjs();
 $('#currentDay').text(today.format('MMM D, YYYY'));
 
-var saveButton = $('.btn saveBtn col-2 col-md-1')
+const saveButton = document.querySelectorAll("button")
 
-saveButton.on('click', function() {
-  var buttonId = $(this).attr("id");
-  console.log("Button with ID " + buttonId + " was clicked.");
-});
+// saveButton.on('click', function() {
+//   var buttonId = $(this).attr("id");
+//   console.log("Button with ID " + buttonId + " was clicked.");
+// });
 
 console.log(saveButton)
 
@@ -20,20 +20,31 @@ console.log(saveButton)
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
 
-  var hour = dayjs().format('h A');
+  var hour = dayjs().format('h');
   console.log(hour)
-  var hourElements =  document.querySelector(".row time-block future").textContent
 
-  var hourArray = Array.from(hourElements)
+  var divTags = document.querySelectorAll(".row time-block future")
+  console.log(divTags)
+
+  for ( var i = 0; i < divTags.id; i++ ){
+    if (divTags.id([i])=stringify.hour){
+      divTags.changeClass("row time-block present");
+    } else if (divTags.id([i])<hour){
+      divTags.changeClass("row time-block past");
+  }}
+
+  // const hourElements = document.getElementsByClassName("col-2 col-md-1 hour text-center py-3").innerText
+  
+  // var hourArray = Array.from(hourElements)
 
   //console.log(hourElements)
-console.log(hourArray)
-  hourArray.forEach(function(hourElement) {
-    var selectedHour = hourElement.textContent;
+// console.log(hourArray)
+//   hourArray.forEach(function(hourElement) {
+//     var selectedHour = hourElement.textContent;
 
-    // Perform your desired action for each hour
-    console.log("Selected hour:", selectedHour);
-  });
+//     // Perform your desired action for each hour
+//     console.log("Selected hour:", selectedHour);
+//   });
 
   // Console.log Button ID
 
