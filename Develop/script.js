@@ -4,9 +4,9 @@
 var today = dayjs();
 $('#currentDay').text(today.format('MMM D, YYYY'));
 
-const saveButton = document.querySelectorAll("button")
+var saveButton = document.querySelectorAll("button")
 
-// saveButton.on('click', function() {
+// addEventListener.saveButton('click', {
 //   var buttonId = $(this).attr("id");
 //   console.log("Button with ID " + buttonId + " was clicked.");
 // });
@@ -20,31 +20,57 @@ console.log(saveButton)
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
 
-  var hour = dayjs().format('h');
-  console.log(hour)
+  var currentHour = parseInt(dayjs().format('H'));
+  console.log(currentHour)
 
-  var divTags = document.querySelectorAll(".row time-block future")
-  console.log(divTags)
 
-  for ( var i = 0; i < divTags.id; i++ ){
-    if (divTags.id([i])=stringify.hour){
-      divTags.changeClass("row time-block present");
-    } else if (divTags.id([i])<hour){
-      divTags.changeClass("row time-block past");
-  }}
+  $(".time-block").each(
+    function() {
+      var blockHour = parseInt(
+        $(this).attr("id")
+      )
+      console.log(blockHour)
+
+      if (blockHour < currentHour) {
+        $(this).addClass("past")
+      } 
+      else if (blockHour === currentHour) {
+        $(this).removeClass("past");
+        $(this).addClass("present")
+      }
+      else {
+        $(this).removeClass("past")
+        $(this).removeClass("present")
+        $(this).addClass("future")
+      }
+
+    }
+    
+  )
+  
+
+  // var divTags = document.querySelectorAll(".row time-block future")
+  // console.log(divTags)
+
+  // for ( var i = 0; i < divTags.id; i++ ){
+  //   if (divTags.id([i]) == stringify.hour){
+  //     divTags.appendClass(".present");
+  //   } else if (divTags.id([i]) < hour){
+  //     divTags.appendClass(".past");
+  // }}
 
   // const hourElements = document.getElementsByClassName("col-2 col-md-1 hour text-center py-3").innerText
   
   // var hourArray = Array.from(hourElements)
 
-  //console.log(hourElements)
-// console.log(hourArray)
-//   hourArray.forEach(function(hourElement) {
-//     var selectedHour = hourElement.textContent;
+  // console.log(hourElements)
 
-//     // Perform your desired action for each hour
-//     console.log("Selected hour:", selectedHour);
-//   });
+  // hourArray.forEach(function(hourElement) {
+  //   var selectedHour = hourElement.textContent;
+
+  //   // Perform your desired action for each hour
+  //   console.log("Selected hour:", selectedHour);
+  // });
 
   // Console.log Button ID
 
