@@ -4,14 +4,12 @@
 var today = dayjs();
 $('#currentDay').text(today.format('MMM D, YYYY'));
 
-var saveButton = document.querySelectorAll("button")
-
-// addEventListener.saveButton('click', {
-//   var buttonId = $(this).attr("id");
-//   console.log("Button with ID " + buttonId + " was clicked.");
-// });
-
-console.log(saveButton)
+$(".saveBtn").on('click', function() {
+   var userInput = $(this).siblings(".description").val();
+   console.log(userInput)
+   var time = $(this).parent().attr("id")
+   console.log(time)
+})
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -19,6 +17,8 @@ console.log(saveButton)
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
+
+  //time as key, user input to set local storage
 
   var currentHour = parseInt(dayjs().format('H'));
   console.log(currentHour)
